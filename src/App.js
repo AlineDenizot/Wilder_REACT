@@ -4,13 +4,6 @@ import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-
-const wilders = [
-  {firstname:"Wilder #1"},
-  {firstname:"Wilder #2"},
-  {firstname:"Wilder #3"},
-]
-
 const Container = styled.div`
   max-width: 800px;
   margin-left: auto;
@@ -25,20 +18,19 @@ const CardRow = styled.section`
 `;
 
 function App() {
-  const [data, setData] = useState({ wilders: [] });
+  const [wilders, setWilders] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchWilders = async () => {
       try {
         const result = await axios("http://localhost:5000/api/wilder/read");
-        console.log(result);
-        setData(result);
+        setWilders(result.data.result);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchData();
+    fetchWilders();
   }, []);
   return (
     <div>
@@ -51,7 +43,7 @@ function App() {
         <h2>Wilders</h2>
         <CardRow>
           {wilders.map((wilder)=> (
-            <Wilder key={wilder.firstname} {...wilder}/>
+            <Wilder key={wilder._id} {...wilder}/>
           ))}
         </CardRow>
       </Container>

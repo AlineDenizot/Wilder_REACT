@@ -1,10 +1,10 @@
 import React from "react";
 import Proptypes from "prop-types";
 
-function Skill({name, votes}) {
+function Skill({title, votes}) {
   return (
     <li>
-       {name}
+       {title}
       <span className="votes">{votes}</span>
     </li>
   );

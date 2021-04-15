@@ -1,21 +1,15 @@
 import React from "react";
+import blank_profile from "./icons/blank-profile-picture-female.png";
 import Proptypes from "prop-types";
 
 import Skill from "./Skill";
 
-const skills = [
-    {name:"HTML", votes:5 },
-    {name:"CSS", votes:4 },
-    {name:"React", votes:3 },
-    {name:"Node", votes:2 },
-    {name:"Typescript", votes:1 },
-]
-
-function Wilder({firstname}) {
+function Wilder({name, city, skills}) {
   return (
     <article className="card">
-      <img src="#" alt="Jane Doe Profile" />
-      <h3>{firstname}</h3>
+      <img src={blank_profile} alt="{`${name} Profile`}" />
+      <h3>{name}</h3>
+      <h2>De {city}</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -25,7 +19,7 @@ function Wilder({firstname}) {
       <h4>Wild Skills</h4>
       <ul className="skills">
       {skills.map((skill) => (
-          <Skill key={skill.name} {...skill}/>
+          <Skill key={skill._id} {...skill}/>
       ))}
       </ul>
     </article>
