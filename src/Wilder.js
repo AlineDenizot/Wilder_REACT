@@ -1,12 +1,13 @@
 import React from "react";
+import Proptypes from "prop-types";
 
 import Skill from "./Skill";
 
-function Wilder() {
+function Wilder(props) {
   return (
     <article className="card">
       <img src="#" alt="Jane Doe Profile" />
-      <h3>Jane Doe</h3>
+      <h3>{props.name}</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -24,5 +25,9 @@ function Wilder() {
     </article>
   );
 }
+
+Skill.propTypes = {
+    name: Proptypes.string.isRequired,
+  };
 
 export default Wilder;
