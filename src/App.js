@@ -3,6 +3,8 @@ import Wilder from "./Wilder";
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AddWilder from "./AddWilder";
+
 
 const Container = styled.div`
   max-width: 800px;
@@ -24,6 +26,7 @@ function App() {
     const fetchWilders = async () => {
       try {
         const result = await axios("http://localhost:5000/api/wilder/read");
+        console.log(result);
         setWilders(result.data.result);
       } catch (error) {
         console.log(error);
@@ -39,6 +42,9 @@ function App() {
           <h1>Wilders Book</h1>
         </Container>
       </header>
+      <Container>
+        <AddWilder />
+      </Container>
       <Container>
         <h2>Wilders</h2>
         <CardRow>
