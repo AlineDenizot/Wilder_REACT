@@ -11,7 +11,7 @@ function Skill({title, votes}) {
 }
 
 Skill.propTypes = {
-    name: Proptypes.string.isRequired,
+    title: Proptypes.string.isRequired,
     votes: Proptypes.number.isRequired,
   };
 

@@ -7,7 +7,7 @@ import Skill from "./Skill";
 function Wilder({name, city, skills}) {
   return (
     <article className="card">
-      <img src={blank_profile} alt="{`${name} Profile`}" />
+      <img src={blank_profile} alt="Profile" />
       <h3>{name}</h3>
       <h2>De {city}</h2>
       <p>
@@ -26,8 +26,9 @@ function Wilder({name, city, skills}) {
   );
 }
 
-Skill.propTypes = {
+Wilder.propTypes = {
     name: Proptypes.string.isRequired,
+    city: Proptypes.string.isRequired,
   };
 
 export default Wilder;
