@@ -3,11 +3,19 @@ import Proptypes from "prop-types";
 
 import Skill from "./Skill";
 
-function Wilder({name}) {
+const skills = [
+    {name:"HTML", votes:5 },
+    {name:"CSS", votes:4 },
+    {name:"React", votes:3 },
+    {name:"Node", votes:2 },
+    {name:"Typescript", votes:1 },
+]
+
+function Wilder({firstname}) {
   return (
     <article className="card">
       <img src="#" alt="Jane Doe Profile" />
-      <h3>{name}</h3>
+      <h3>{firstname}</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -16,11 +24,9 @@ function Wilder({name}) {
       </p>
       <h4>Wild Skills</h4>
       <ul className="skills">
-      <Skill name="HTML" votes={3} />
-        <Skill name="CSS" votes={2} />
-        <Skill name="React" votes={4} />
-        <Skill name="Node" votes={7} />
-        <Skill name="Typescript" votes={2} />
+      {skills.map((skill) => (
+          <Skill key={skills.name} {...skill}/>
+      ))}
       </ul>
     </article>
   );

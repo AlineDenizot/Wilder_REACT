@@ -1,6 +1,12 @@
 import './App.css';
 import Wilder from "./Wilder";
 
+const wilders = [
+  {firstname:"Wilder #1"},
+  {firstname:"Wilder #2"},
+  {firstname:"Wilder #3"},
+]
+
 function App() {
   return (
     <div>
@@ -12,11 +18,9 @@ function App() {
       <main className="container">
         <h2>Wilders</h2>
         <section className="card-row">
-          <Wilder name="Wilder #1"/>
-          <Wilder name="Wilder #2"/>
-          <Wilder name="Wilder #3"/>
-          <Wilder name="Wilder #4"/>
-          <Wilder name="Wilder #5"/>
+          {wilders.map((wilder)=> (
+            <Wilder key={wilder.firstname} {...wilder}/>
+          ))}
         </section>
       </main>
       <footer>
