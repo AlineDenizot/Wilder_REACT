@@ -25,7 +25,7 @@ function Wilder({firstname}) {
       <h4>Wild Skills</h4>
       <ul className="skills">
       {skills.map((skill) => (
-          <Skill key={skills.name} {...skill}/>
+          <Skill key={skill.name} {...skill}/>
       ))}
       </ul>
     </article>

@@ -1,5 +1,7 @@
 import './App.css';
 import Wilder from "./Wilder";
+import styled from "styled-components";
+
 
 const wilders = [
   {firstname:"Wilder #1"},
@@ -7,26 +9,39 @@ const wilders = [
   {firstname:"Wilder #3"},
 ]
 
+const Container = styled.div`
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+`;
+
+const CardRow = styled.section`
+  display: grid;
+  grid-template-columns: repeat(3, 32%);
+  justify-content: space-between;
+`;
+
 function App() {
   return (
     <div>
       <header>
-        <div className="container">
+        <Container>
           <h1>Wilders Book</h1>
-        </div>
+        </Container>
       </header>
-      <main className="container">
+      <Container>
         <h2>Wilders</h2>
-        <section className="card-row">
+        <CardRow>
           {wilders.map((wilder)=> (
             <Wilder key={wilder.firstname} {...wilder}/>
           ))}
-        </section>
-      </main>
+        </CardRow>
+      </Container>
       <footer>
-        <div className="container">
+        <Container>
           <p>&copy; 2020 Wild Code School</p>
-        </div>
+        </Container>
       </footer>
       </div>
   );
