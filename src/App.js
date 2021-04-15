@@ -1,6 +1,8 @@
 import './App.css';
 import Wilder from "./Wilder";
 import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const wilders = [
@@ -23,6 +25,21 @@ const CardRow = styled.section`
 `;
 
 function App() {
+  const [data, setData] = useState({ wilders: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios("http://localhost:5000/api/wilder/read");
+        console.log(result);
+        setData(result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <header>
