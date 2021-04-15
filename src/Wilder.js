@@ -3,11 +3,11 @@ import Proptypes from "prop-types";
 
 import Skill from "./Skill";
 
-function Wilder(props) {
+function Wilder({name}) {
   return (
     <article className="card">
       <img src="#" alt="Jane Doe Profile" />
-      <h3>{props.name}</h3>
+      <h3>{name}</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
