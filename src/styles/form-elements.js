@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { colors } from "./globals";
 
+
 export const Form = styled.form`
   display: grid;
   place-content: center;

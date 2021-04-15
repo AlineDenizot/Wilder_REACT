@@ -21,6 +21,7 @@ const CardRow = styled.section`
 
 function App() {
   const [wilders, setWilders] = useState([]);
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     const fetchWilders = async () => {
@@ -43,7 +44,10 @@ function App() {
         </Container>
       </header>
       <Container>
-        <AddWilder />
+        <AddWilder 
+        onSuccess={(newWilder) => {
+          setWilders([{ ...newWilder, justAdded: true }, ...wilders]);
+        }}/>
       </Container>
       <Container>
         <h2>Wilders</h2>
