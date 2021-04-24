@@ -1,12 +1,14 @@
 import React from "react";
 import blank_profile from "./icons/blank-profile-picture-female.png";
 import Proptypes from "prop-types";
+import { Card } from "./styles/elements";
+
 
 import Skill from "./Skill";
 
-function Wilder({name, city, skills}) {
+function Wilder({name, city, skills, justAdded}) {
   return (
-    <article className="card">
+    <Card newCard={justAdded}>
       <img src={blank_profile} alt="Profile" />
       <h3>{name}</h3>
       <h2>De {city}</h2>
@@ -22,7 +24,7 @@ function Wilder({name, city, skills}) {
           <Skill key={skill._id} {...skill}/>
       ))}
       </ul>
-    </article>
+    </Card>
   );
 }
 

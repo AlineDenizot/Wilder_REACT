@@ -3,7 +3,7 @@ import { Button, Form, Input, Label, Error} from "./styles/form-elements.js";
 import axios from "axios";
 import { ReactComponent as LoadingIcon } from "./icons/hourglass.svg";
 
-function AddWilder() {
+function AddWilder({ onSuccess }) {
     const [name,setName] = useState("");
     const [city, setCity] = useState("");
     const [error, setError] = useState("");
@@ -27,6 +27,7 @@ function AddWilder() {
             );
             if (result.data.success) {
               setError("");
+              onSuccess(result.data.result);
             }
           } catch (error) {
             if (error.response) {

@@ -46,6 +46,9 @@ function App() {
       <Container>
         <AddWilder 
         onSuccess={(newWilder) => {
+          setSuccessMessage(
+            `The wilder ${newWilder.name} has been successfully added`
+          );
           setWilders([{ ...newWilder, justAdded: true }, ...wilders]);
         }}/>
       </Container>
